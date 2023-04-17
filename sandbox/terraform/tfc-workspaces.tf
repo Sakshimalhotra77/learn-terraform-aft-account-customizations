@@ -11,7 +11,7 @@ provider "tfe" {
 # https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace
 resource "tfe_workspace" "my_workspace" {
   name         = var.tfc_workspace_name
-  organization = var.tfc_organization_name
+  organization = data.tfe_organization.AFT-demo-ett
 }
 
 # The following variables must be set to allow runs
