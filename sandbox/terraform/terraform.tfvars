@@ -1,1 +1,1 @@
-tfc_organization_name = "AFT-demo-ett"
+tfc_organization_name = "AFT-demo-app-teams"
