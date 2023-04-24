@@ -1,7 +1,7 @@
 provider "aws" {
   region  = "us-east-1"
   assume_role {
-    role_arn     = "arn:aws:iam::958634353777:role/aft-tfe-token_role"
+    role_arn     = "arn:aws:iam::116515616857:role/aft-tfe-token-role"
   }
   alias = "aft"
 }
