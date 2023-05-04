@@ -3,7 +3,6 @@
 
 provider "tfe" {
   hostname = var.tfc_hostname
-  token    = data.aws_secretsmanager_secret_version.tfe_token_secret.secret_string
 }
 
 # Runs in this workspace will be automatically authenticated
