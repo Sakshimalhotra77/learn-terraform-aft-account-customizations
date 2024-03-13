@@ -13,7 +13,7 @@ module "vpc" {
   cidr_block = "10.0.0.0/16"
 
   tags = {
-    CostCenter = "BA-324"
+    CostCenter = "BA-231"
   }
 }
 
@@ -35,7 +35,7 @@ module "rds" {
   skip_final_snapshot     = true
 
   tags = {
-    CostCenter = "BA-324"
+    CostCenter = "BA-231"
   }
 }
 
@@ -49,7 +49,7 @@ module "s3" {
   force_destroy      = true
 
   tags = {
-    CostCenter = "BA-324"
+    CostCenter = "BA-231"
   }
 }
 
@@ -58,7 +58,7 @@ module "ec2" {
   source = "your-org-name/ec2/aws"
 
   instance_type = "t3.small"
-  ami           = "ami-0cff7528ff583bf9a" # Replace with your desired AMI
+  ami           = "ami-sandbox1234" # Sandbox AMI
   count         = 2
 
   vpc_id                   = module.vpc.vpc_id
@@ -66,7 +66,7 @@ module "ec2" {
   associate_public_ip_address = false
 
   tags = {
-    CostCenter = "BA-324"
+    CostCenter = "BA-231"
   }
 }
 
@@ -91,7 +91,7 @@ resource "aws_security_group" "web" {
   }
 
   tags = {
-    CostCenter = "BA-324"
+    CostCenter = "BA-231"
   }
 }
 
@@ -116,7 +116,7 @@ resource "aws_security_group" "elb" {
   }
 
   tags = {
-    CostCenter = "BA-324"
+    CostCenter = "BA-231"
   }
 }
 
@@ -144,7 +144,7 @@ resource "aws_elb" "web_elb" {
   }
 
   tags = {
-    CostCenter = "BA-324"
+    CostCenter = "BA-231"
   }
 }
 
@@ -173,7 +173,7 @@ module "auto_scaling" {
   target_group_arns    = [aws_elb.web_elb.arn]
 
   tags = {
-    CostCenter = "BA-324"
+    CostCenter = "BA-231"
   }
 }
 
@@ -212,6 +212,6 @@ This code includes the following:
 8. **Auto Scaling Group**: Sets up an Auto Scaling group that spans across multiple Availability Zones, uses the defined launch configuration, and attaches the instances to the Elastic Load Balancer.
 9. **IAM Role and Instance Profile**: Creates an IAM role and instance profile for the EC2 instances to grant necessary permissions.
 
-This code follows Terraform best practices, includes comments explaining each section, and applies the "BA-324" cost center tag to all resources and modules.
+This code follows Terraform best practices, includes comments explaining each section, and applies the "BA-231" cost center tag to all resources and modules.
 
 Note: You will need to replace `your-org-name` with your organization's name in the module sources, and ensure that the specified AMI ID (`ami-0cff7528ff583bf9a`) is valid for your AWS region. Additionally, you should customize the `user_data.sh` script to configure your web application on the EC2 instances.
