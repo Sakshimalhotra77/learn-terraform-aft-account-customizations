@@ -1,6 +1,3 @@
-Sure, here's a Terraform module for Amazon GuardDuty:
-
-```hcl
 # Configure Amazon GuardDuty
 resource "aws_guardduty_detector" "this" {
   enable = true
@@ -45,13 +42,3 @@ resource "aws_guardduty_publishing_destination" "findings_destination" {
   destination_arn = aws_sns_topic.guardduty_findings.arn
   kms_key_arn     = "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab" # Optional KMS key ARN for encryption
 }
-```
-
-This Terraform code does the following:
-
-1. Creates an Amazon GuardDuty detector and configures various data sources.
-2. Creates an Amazon SNS topic for GuardDuty findings.
-3. Subscribes an email address to the SNS topic (replace `example@example.com` with your email address).
-4. Configures GuardDuty to publish findings to the SNS topic.
-
-You can customize the `datasources` block and other settings according to your requirements. Additionally, you can add or modify resources as needed, such as creating CloudWatch Event Rules and Lambda functions to take automated actions based on GuardDuty findings.
